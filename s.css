@@ -287,3 +287,7 @@ p{
     font-size: 26px;
     font-style: italic;
 }
+li{
+    border: 2px solid #106077;
+    padding: 10px;
+}
