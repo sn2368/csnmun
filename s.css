@@ -44,7 +44,7 @@
   }
   
   .nav-links a:hover {
-    color: #ffcc00;
+    border-bottom: 2px solid #11a3cd;
   }
   
   .hamburger {
