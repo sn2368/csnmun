@@ -84,13 +84,24 @@
   <section id="committees" class="committees">
     <h2>Our Committees</h2>
     <div class="committee-cards">
-      <div class="committee"> <img src="logos/unga.png" alt="UNGA"><p>UNGA</p></div>
+      <div class="committee">
+        <img src="logos/unga.png" alt="UNGA">
+        <p>UNGA</p>
+        <button class="agenda-btn" onclick="openModal('unga')">Agenda</button>
+      </div>
       <div class="committee"> <img src="logos/unhrc.png" alt="UNHRC"><p>UNHRC</p></div>
       <div class="committee"> <img src="logos/unsc.png" alt="UNSC"><p>UNSC</p></div>
       <div class="committee"> <img src="logos/magic.png" alt="Ministry of Magic"><p>Ministry of Magic</p></div>
       <div class="committee"> <img src="logos/aippm.png" alt="AIPPM"><p>AIPPM</p></div>
       <div class="committee"> <img src="logos/ip.png" alt="International Press"><p>International Press (IP)</p></div>
     </div>
+    <div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h3 id="modal-title">Agenda</h3>
+    <p id="modal-body">Agenda content goes here...</p>
+  </div>
+</div>
   </section>
 
   <section id="contact" class="contact">
@@ -120,6 +131,31 @@
         });
       });
     });
+      const agendas = {
+    unga: "Deliberation on stabilising the middle east amidst the israel-palestine conflict",
+    unhrc: "Evaluating civilian protection in armed conflict with special emphasis on the sudanese  and gazan humanitarian crisis",
+    unsc: "Reassessing nuclear disarmament and non-proliferation amidst rising geopolitical tensions",
+    magic: "CLASSIFIED",
+    aippm: "Addressing ethnic violence and governance challenges in Manipur with special emphasis on centre-state relations",
+    ip: "Journalists, photographers and caricaturists"
+  };
+
+  function openModal(committee) {
+    document.getElementById("modal-title").textContent = committee.toUpperCase();
+    document.getElementById("modal-body").textContent = agendas[committee];
+    document.getElementById("modal").style.display = "block";
+  }
+
+  function closeModal() {
+    document.getElementById("modal").style.display = "none";
+  }
+
+  window.onclick = function (event) {
+    const modal = document.getElementById("modal");
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
   </script>
 </body>
 
