@@ -272,5 +272,13 @@
   }
 .i{
     color:#0b4c5f;
-    font-size: 150px;;
+    font-size: 45px;;
+}
+strong{
+    color: #0c5267;
+    font-size: 22px;
+}
+p{
+    color: #1e606b;
+    font-size: 18px;
 }
