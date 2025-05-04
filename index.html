@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSN MUN'25</title>
+  <link rel="stylesheet" href="s.css" />
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="logo">CSN MUN'25</div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#conference">Details</a>
+      <a href="#committees">Committees</a>
+      <a href="#contact">Contact</a>
+      <a href="/public-eye-matrix.pdf" target="_blank">Public Eye Matrix</a>
+    </nav>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>CSN MUN'25</h1>
+      <p>Let's strive for a better world</p>
+      <a href="https://forms.gle/NQqFVEy4iRH6ssL1A" target="_blank">
+        <button>Register Now</button>
+      </a>
+    </div>
+  </section>
+
+  <section id="conference" class="conference-details">
+    <h2>Conference Details</h2>
+    <div class="details">
+      <p><strong>Date:</strong> 15th - 16th August 2025</p>
+      <p><strong>Venue:</strong> CSN International School Auditorium, Delhi</p>
+      <p><strong>Eligibility:</strong> Open to students of Classes 8–12</p>
+      <p><strong>Delegate Fee:</strong> ₹800 (includes kits, refreshments & certificates)</p>
+      <p><strong>Contact Us:</strong> csnmun25@gmail.com | +91 9876543210</p>
+    </div>
+    <hr>
+    <hr>
+    <div class="mt-24 max-w-6xl mx-auto px-4">
+      <h3 class="i text-4xl font-bold mb-16 text-center text-[#106077]">Itinerary</h3>
+      <div class="timeline">
+        <div class="timeline-block">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4 class="day-heading">Day 1 – 15th August</h4>
+            <ul>
+              <li>08:00 AM – Registration & Kit Distribution</li>
+              <li>09:00 AM – Opening Ceremony</li>
+              <li>10:00 AM – Committee Session I</li>
+              <li>12:30 PM – Lunch Break</li>
+              <li>01:30 PM – Committee Session II</li>
+              <li>04:00 PM – Day Close</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-block">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4 class="day-heading">Day 2 – 16th August</h4>
+            <ul>
+              <li>09:00 AM – Committee Session III</li>
+              <li>11:30 AM – Break</li>
+              <li>12:00 PM – Committee Session IV</li>
+              <li>02:00 PM – Lunch & Deliberation</li>
+              <li>03:00 PM – Closing Ceremony & Awards</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="committees" class="committees">
+    <h2>Our Committees</h2>
+    <div class="committee-cards">
+      <div class="committee"> <img src="logos/unga.png" alt="UNGA"><p>UNGA</p></div>
+      <div class="committee"> <img src="logos/unhrc.png" alt="UNHRC"><p>UNHRC</p></div>
+      <div class="committee"> <img src="logos/unsc.png" alt="UNSC"><p>UNSC</p></div>
+      <div class="committee"> <img src="logos/magic.png" alt="Ministry of Magic"><p>Ministry of Magic</p></div>
+      <div class="committee"> <img src="logos/aippm.png" alt="AIPPM"><p>AIPPM</p></div>
+      <div class="committee"> <img src="logos/ip.png" alt="International Press"><p>International Press (IP)</p></div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <p>© CSN MUN'25. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('show');
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
