@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
+  
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CSN MUN'25</title>
   <link rel="stylesheet" href="s.css" />
 </head>
-
+  
 <body>
   <header class="navbar">
     <div class="logo">CSN MUN'25</div>
@@ -85,42 +85,72 @@
     <h2>Our Committees</h2>
     <div class="committee-cards">
       <div class="committee">
-        <img src="logos/unga.png" alt="UNGA">
-        <p>UNGA</p>
-        <button class="agenda-btn" onclick="openModal('unga')">Agenda</button>
-      </div>
-      <div class="committee"> 
-        <img src="logos/unhrc.png" alt="UNHRC">
-        <p>UNHRC</p>
-        <button class="agenda-btn" onclick="openModal('unhrc')">Agenda</button>
-      </div>
-      <div class="committee"> 
-        <img src="logos/unsc.png" alt="UNSC">
-        <p>UNSC</p>
-        <button class="agenda-btn" onclick="openModal('unsc')">Agenda</button>
-      </div>
-      <div class="committee">
-        <img src="logos/magic.png" alt="Ministry of Magic">
-        <p>Ministry of Magic</p>
-        <button class="agenda-btn" onclick="openModal('mom')">Agenda</button>
-      </div>
-      <div class="committee"> <img src="logos/aippm.png" alt="AIPPM">
-        <p>AIPPM</p>
-        <button class="agenda-btn" onclick="openModal('aippm')">Agenda</button>
-      </div>
-      <div class="committee"> 
-        <img src="logos/ip.png" alt="International Press">
-        <p>International Press (IP)</p>
-        <button class="agenda-btn" onclick="openModal('ip')">Agenda</button>
-      </div>
+    <img src="logos/unga.png" alt="UNGA">
+    <p>UNGA</p>
+    <button class="agenda-btn" onclick="toggleAgenda('unga')">
+      Agenda <span class="icon" id="icon-unga">&#9660;</span>
+    </button>
+    <div class="agenda-dropdown" id="agenda-unga">
+      <p>Deliberation on global disarmament and nuclear non-proliferation.</p>
     </div>
-    <div id="modal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <h3 id="modal-title">Agenda</h3>
-    <p id="modal-body">Agenda content goes here...</p>
+  </div>
+
+  <div class="committee">
+    <img src="logos/unhrc.png" alt="UNHRC">
+    <p>UNHRC</p>
+    <button class="agenda-btn" onclick="toggleAgenda('unhrc')">
+      Agenda <span class="icon" id="icon-unhrc">&#9660;</span>
+    </button>
+    <div class="agenda-dropdown" id="agenda-unhrc">
+      <p>Addressing the human rights situation in conflict zones globally.</p>
+    </div>
+  </div>
+
+  <div class="committee">
+    <img src="logos/unsc.png" alt="UNSC">
+    <p>UNSC</p>
+    <button class="agenda-btn" onclick="toggleAgenda('unsc')">
+      Agenda <span class="icon" id="icon-unsc">&#9660;</span>
+    </button>
+    <div class="agenda-dropdown" id="agenda-unsc">
+      <p>Threats to international peace with focus on regional tensions.</p>
+    </div>
+  </div>
+
+  <div class="committee">
+    <img src="logos/aippm.png" alt="AIPPM">
+    <p>AIPPM</p>
+    <button class="agenda-btn" onclick="toggleAgenda('aippm')">
+      Agenda <span class="icon" id="icon-aippm">&#9660;</span>
+    </button>
+    <div class="agenda-dropdown" id="agenda-aippm">
+      <p>Debate on the Uniform Civil Code and secularism in India.</p>
+    </div>
+  </div>
+
+  <div class="committee">
+    <img src="logos/magic.png" alt="Ministry of Magic">
+    <p>Ministry of Magic</p>
+    <button class="agenda-btn" onclick="toggleAgenda('magic')">
+      Agenda <span class="icon" id="icon-magic">&#9660;</span>
+    </button>
+    <div class="agenda-dropdown" id="agenda-magic">
+      <p>Overhaul of magical law enforcement and wizarding rights.</p>
+    </div>
+  </div>
+
+  <div class="committee">
+    <img src="logos/ip.png" alt="IP">
+    <p>International Press</p>
+    <button class="agenda-btn" onclick="toggleAgenda('ip')">
+      Agenda <span class="icon" id="icon-ip">&#9660;</span>
+    </button>
+    <div class="agenda-dropdown" id="agenda-ip">
+      <p>Coverage and representation of international diplomacy in media.</p>
+    </div>
   </div>
 </div>
+    
   </section>
 
   <section id="contact" class="contact">
@@ -150,31 +180,22 @@
         });
       });
     });
-      const agendas = {
-    unga: "Deliberation on stabilising the middle east amidst the israel-palestine conflict",
-    unhrc: "Evaluating civilian protection in armed conflict with special emphasis on the sudanese  and gazan humanitarian crisis",
-    unsc: "Reassessing nuclear disarmament and non-proliferation amidst rising geopolitical tensions",
-    mom: "CLASSIFIED",
-    aippm: "Addressing ethnic violence and governance challenges in Manipur with special emphasis on centre-state relations",
-    ip: "Journalists, photographers and caricaturists"
-  };
+     function toggleAgenda(id) {
+    const dropdown = document.getElementById("agenda-" + id);
+    const icon = document.getElementById("icon-" + id);
 
-  function openModal(committee) {
-    document.getElementById("modal-title").textContent = committee.toUpperCase();
-    document.getElementById("modal-body").textContent = agendas[committee];
-    document.getElementById("modal").style.display = "block";
-  }
+    const isOpen = dropdown.style.display === "block";
+    
+    // Close all other agendas
+    document.querySelectorAll(".agenda-dropdown").forEach(el => el.style.display = "none");
+    document.querySelectorAll(".icon").forEach(ic => ic.classList.remove("rotate"));
 
-  function closeModal() {
-    document.getElementById("modal").style.display = "none";
-  }
-
-  window.onclick = function (event) {
-    const modal = document.getElementById("modal");
-    if (event.target == modal) {
-      modal.style.display = "none";
+    // Toggle current
+    if (!isOpen) {
+      dropdown.style.display = "block";
+      icon.classList.add("rotate");
     }
-  };
+  }
   </script>
 </body>
 
