@@ -28,45 +28,33 @@
   </header>
 
   <section class="hero">
-    <!-- Swiper -->
-<div class="swiper mySwiper">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide">
-      <img src="img1.jpg" alt="Slide 1" />
-      <div class="caption">
-        <h1>CSN MUN'25</h1>
-        <p>Let's strive for a better world</p>
+   <!-- Swiper Hero Carousel -->
+<section class="hero-section">
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="img1.jpg" alt="Slide 1" />
+      </div>
+      <div class="swiper-slide">
+        <img src="img2.jpg" alt="Slide 2" />
+      </div>
+      <div class="swiper-slide">
+        <img src="img3.jpg" alt="Slide 3" />
       </div>
     </div>
-    <div class="swiper-slide">
-      <img src="img2.jpg" alt="Slide 2" />
-      <div class="caption">
-        <h1>Six Committees</h1>
-        <p>Infinite Diplomacy</p>
-      </div>
-    </div>
-    <div class="swiper-slide">
-      <img src="img3.jpg" alt="Slide 3" />
-      <div class="caption">
-        <h1>Lead. Learn. Lead Again.</h1>
-        <p>Only at CSN MUN'25</p>
-      </div>
+
+    <!-- Controls -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+
+    <!-- Caption (fixed for all slides) -->
+    <div class="hero-caption">
+      <h1>CSN MUN'25</h1>
+      <p>Let's strive for a better world</p>
     </div>
   </div>
-
-  <!-- Controls -->
-  <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-pagination"></div>
-</div>
-
-    <!--div class="hero-content">
-      <h1>CSNMUN'25</h1>
-      <p class="q">Let's strive for a better world</p>
-      <a href="https://forms.gle/NQqFVEy4iRH6ssL1A" target="_blank">
-        <button>Register Now</button>
-      </a>
-  </div-->
+</section>
   </section>
 
   <section id="conference" class="conference-details">
@@ -230,7 +218,7 @@
 var swiper = new Swiper(".mySwiper", {
     loop: true,
     autoplay: {
-      delay: 4000,
+      delay: 3500,
       disableOnInteraction: false,
     },
     pagination: {
