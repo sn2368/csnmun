@@ -145,16 +145,14 @@
 
   <section id="contact" class="contact">
     <h2>Contact Us</h2>
-   <form id="contact-form">
-  <input type="text" name="name" required placeholder="Your Name" />
-  <input type="email" name="email" required placeholder="Your Email" />
-  <textarea name="message" required placeholder="Your Message"></textarea>
+    <form id="contactForm">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <textarea name="message" placeholder="Your Message" required></textarea>
   <button type="submit">Submit</button>
 </form>
+<p id="formResponse" style="margin-top: 1rem; color: green;"></p>
 
-<div id="notification" style="display:none; padding: 1rem; background-color: #4BB543; color: white; text-align: center;">
-  Form submitted successfully!
-</div>
 
   </section>
 
@@ -191,31 +189,34 @@
       icon.classList.add("rotate");
     }
   }
- const FORMSPREE_URL = "https://formspree.io/f/xwpoozlr"; // Replace this
-  document.getElementById("contact-form").addEventListener("submit", async function(e) {
+ const scriptURL = 'YOUR_WEB_APP_URL'; // replace with your actual URL
+  const form = document.getElementById('contactForm');
+  const responseMsg = document.getElementById('formResponse');
+
+  form.addEventListener('submit', e => {
     e.preventDefault();
 
-    const form = e.target;
-    const formData = new FormData(form);
+    const data = {
+      name: form.name.value,
+      email: form.email.value,
+      message: form.message.value
+    };
 
-    try {
-      const response = await fetch("https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT", {
-        method: "POST",
-        headers: {
-          'Accept': 'application/json'
-        },
-        body: formData
-      });
-
+    fetch(scriptURL, {
+      method: 'POST',
+      body: JSON.stringify(data)
+    })
+    .then(response => {
       if (response.ok) {
-        document.getElementById("notification").style.display = "block";
+        responseMsg.textContent = 'Message sent successfully!';
         form.reset();
       } else {
-        alert("Error submitting the form.");
+        responseMsg.textContent = 'Failed to send. Please try again.';
       }
-    } catch (error) {
-      alert("Error connecting to the server.");
-    }
+    })
+    .catch(error => {
+      responseMsg.textContent = 'Error: ' + error.message;
+    });
   });
 var swiper = new Swiper(".mySwiper", {
     loop: true,
