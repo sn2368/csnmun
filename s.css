@@ -105,7 +105,8 @@
   }
   
   .hero button:hover {
-    background-color: #e6e6e6;
+    background-color: #106077;
+    color: white;
   }
   
   .conference-details {
@@ -463,6 +464,8 @@ li{
 .hero-caption p {
   font-size: 1.8rem;
   margin: 10px 0 0;
+  color: white;
+  fpmt-style: italic;
 }
 
 /* Optional: override swiper button colors */
