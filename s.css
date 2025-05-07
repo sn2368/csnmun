@@ -465,7 +465,7 @@ li{
   font-size: 1.8rem;
   margin: 10px 0 0;
   color: white;
-  fpmt-style: italic;
+  font-style: italic;
 }
 
 /* Optional: override swiper button colors */
