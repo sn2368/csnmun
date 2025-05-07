@@ -171,7 +171,7 @@
   <footer class="footer">
     <p>© CSN MUN'25. All rights reserved.</p>
   </footer>
-
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
     function toggleMenu() {
       document.getElementById('navLinks').classList.toggle('show');
@@ -227,8 +227,21 @@
       alert("Error connecting to the server.");
     }
   });
-
-
+var swiper = new Swiper(".mySwiper", {
+    loop: true,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
   </script>
 </body>
 
