@@ -4,13 +4,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CSN MUN'25</title>
+  <title>CSNMUN'25</title>
   <link rel="stylesheet" href="s.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+
 </head>
   
 <body>
   <header class="navbar">
-    <div class="logo">CSN MUN'25</div>
+    <div class="logo">CSNMUN'25</div>
     <nav class="nav-links" id="navLinks">
       <a href="#conference">Details</a>
       <a href="#committees">Committees</a>
@@ -25,33 +28,40 @@
   </header>
 
   <section class="hero">
-    <div class="hero-carousel">
-  <div class="slides">
-    <div class="slide active">
-      <img src="img1.jpg" alt="Slide 1">
+    <!-- Swiper -->
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <img src="img1.jpg" alt="Slide 1" />
       <div class="caption">
-        <h1>CSNMUN'25</h1>
+        <h1>CSN MUN'25</h1>
         <p>Let's strive for a better world</p>
       </div>
     </div>
-    <div class="slide">
-      <img src="img2.jpg" alt="Slide 2">
+    <div class="swiper-slide">
+      <img src="img2.jpg" alt="Slide 2" />
       <div class="caption">
-        <h1>Engage. Express. Empower.</h1>
-        <p>Debate. Diplomacy. Change.</p>
+        <h1>Six Committees</h1>
+        <p>Infinite Diplomacy</p>
       </div>
     </div>
-    <div class="slide">
-      <img src="img3.jpg" alt="Slide 3">
+    <div class="swiper-slide">
+      <img src="img3.jpg" alt="Slide 3" />
       <div class="caption">
-        <h1>Six Committees. One Goal.</h1>
-        <p>Peace through Dialogue</p>
+        <h1>Lead. Learn. Lead Again.</h1>
+        <p>Only at CSN MUN'25</p>
       </div>
     </div>
   </div>
+
+  <!-- Controls -->
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
 </div>
+
     <div class="hero-content">
-      <h1>CSN MUN'25</h1>
+      <h1>CSNMUN'25</h1>
       <p class="q">Let's strive for a better world</p>
       <a href="https://forms.gle/NQqFVEy4iRH6ssL1A" target="_blank">
         <button>Register Now</button>
