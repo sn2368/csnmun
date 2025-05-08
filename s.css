@@ -15,7 +15,12 @@
     background: #f9f9f9;
     color: #333;
   }
-  
+  .logo {
+  height: 60px;
+  width: auto;
+  margin-right: 20px;
+}
+
   .navbar {
     display: flex;
     justify-content: space-between;
@@ -524,4 +529,10 @@ li{
 .footer p{
     color: white;
     font-size: 18px;
+}
+@media (max-width: 600px) {
+  .logo {
+    height: 40px; /* smaller on mobile */
+    margin-right: 10px;
+  }
 }
