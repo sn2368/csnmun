@@ -521,3 +521,7 @@ li{
     padding: 0.6rem 1.2rem;
   }
 }
+.footer p{
+    color: white;
+    font-size: 18px;
+}
