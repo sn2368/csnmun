@@ -537,3 +537,40 @@ li{
     margin-right: 10px;
   }
 }
+.register-dropdown {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #106077; /* main color */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-top: 0.5rem;
+  padding: 0.5rem 0;
+  width: 180px;
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+.register-dropdown a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #106077;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.register-dropdown a:hover {
+  background-color: #106077;
+  color: white;
+}
+
+.hero-caption {
+  position: relative; /* needed for absolute dropdown positioning */
+}
+
+#register-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+#register-icon.rotate {
+  transform: rotate(180deg);
+}
