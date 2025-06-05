@@ -261,62 +261,26 @@ var swiper = new Swiper(".mySwiper", {
       prevEl: ".swiper-button-prev",
     },
   });
-    function toggleRegisterDropdown() {
-  const dropdown = document.getElementById('registerDropdown');
-  const icon = document.getElementById('register-icon');
-  const isOpen = dropdown.style.display === 'block';
-
-  // Close any other open agendas or dropdowns if needed
-  document.querySelectorAll('.agenda-dropdown').forEach(el => el.style.display = 'none');
-  document.querySelectorAll('.icon').forEach(ic => ic.classList.remove('rotate'));
-
-  if (!isOpen) {
-    dropdown.style.display = 'block';
-    icon.classList.add('rotate');
-  } else {
-    dropdown.style.display = 'none';
-    icon.classList.remove('rotate');
-  }
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  const dropdownContainer = document.querySelector('.dropdown-container');
+  document.addEventListener('DOMContentLoaded', function() {
   const dropdownBtn = document.getElementById('registerDropdownBtn');
-  const dropdownMenu = document.getElementById('registerDropdown');
-  
-  // Toggle dropdown on button click
+  const dropdown = document.querySelector('.dropdown-container');
+
+  // Toggle dropdown
   dropdownBtn.addEventListener('click', function(e) {
     e.stopPropagation();
-    dropdownContainer.classList.toggle('active');
-    
-    // Close other open dropdowns if any
-    document.querySelectorAll('.dropdown-container').forEach(container => {
-      if (container !== dropdownContainer) {
-        container.classList.remove('active');
-      }
-    });
+    dropdown.classList.toggle('active');
   });
-  
+
   // Close when clicking outside
   document.addEventListener('click', function(e) {
-    if (!dropdownContainer.contains(e.target)) {
-      dropdownContainer.classList.remove('active');
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove('active');
     }
   });
-  
-  // Keep dropdown open when clicking inside
-  dropdownMenu.addEventListener('click', function(e) {
-    e.stopPropagation();
-    
-    // Optional: Close after selecting an item
-    if (e.target.tagName === 'A') {
-      dropdownContainer.classList.remove('active');
-    }
-  });
-  
-  // Close when scrolling (optional)
+
+  // Close on scroll
   window.addEventListener('scroll', function() {
-    dropdownContainer.classList.remove('active');
+    dropdown.classList.remove('active');
   }, { passive: true });
 });
   </script>
