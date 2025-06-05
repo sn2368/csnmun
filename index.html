@@ -73,7 +73,16 @@
     <div class="hero-caption">
       <h1>CSNMUN'25</h1>
       <p>Let's strive for a better world</p>
-      <button class="register-btn">Register Now</button>
+      <button class="register-btn" onclick="toggleRegisterDropdown()">
+    Register Now <span id="register-icon">&#9660;</span>
+  </button>
+
+  <div class="register-dropdown" id="registerDropdown" style="display: none;">
+    <a href="#individual" class="register-link">Individual Delegation Registration</a>
+    <a href="#school" class="register-link">International Press Registration</a>
+    <a href="#volunteer" class="register-link">UNGA-Double Delegation Registration</a>
+    <a href="#contact" class="register-link">Public Eye Matrix</a>
+  </div>
 
     </div>
   </div>
@@ -254,6 +263,33 @@ var swiper = new Swiper(".mySwiper", {
       prevEl: ".swiper-button-prev",
     },
   });
+    function toggleRegisterDropdown() {
+  const dropdown = document.getElementById('registerDropdown');
+  const icon = document.getElementById('register-icon');
+  const isOpen = dropdown.style.display === 'block';
+
+  // Close any other open agendas or dropdowns if needed
+  document.querySelectorAll('.agenda-dropdown').forEach(el => el.style.display = 'none');
+  document.querySelectorAll('.icon').forEach(ic => ic.classList.remove('rotate'));
+
+  if (!isOpen) {
+    dropdown.style.display = 'block';
+    icon.classList.add('rotate');
+  } else {
+    dropdown.style.display = 'none';
+    icon.classList.remove('rotate');
+  }
+}
+
+// Optional: close dropdown if clicking outside
+document.addEventListener('click', function(event) {
+  const dropdown = document.getElementById('registerDropdown');
+  const button = document.querySelector('.register-btn');
+  if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+    dropdown.style.display = 'none';
+    document.getElementById('register-icon').classList.remove('rotate');
+  }
+});
   </script>
 </body>
 
