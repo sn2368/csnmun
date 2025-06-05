@@ -537,37 +537,98 @@ li{
     margin-right: 10px;
   }
 }
-.register-dropdown {
-  position: absolute;
+/* Dropdown Styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.register-btn {
+  margin-top: 1.5rem;
   background-color: white;
-  border: 1px solid #106077; /* main color */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  margin-top: 0.5rem;
-  padding: 0.5rem 0;
-  width: 180px;
-  border-radius: 5px;
-  z-index: 1000;
-}
-
-.register-dropdown a {
-  display: block;
-  padding: 0.5rem 1rem;
   color: #106077;
-  text-decoration: none;
-  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.register-dropdown a:hover {
+.register-btn:hover {
   background-color: #106077;
   color: white;
+  transform: translateY(-2px);
 }
 
-
-#register-icon {
-  display: inline-block;
+.dropdown-arrow {
+  font-size: 0.8em;
   transition: transform 0.3s ease;
 }
 
-#register-icon.rotate {
+.dropdown:hover .dropdown-arrow {
   transform: rotate(180deg);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  z-index: 1;
+  overflow: hidden;
+  animation: fadeIn 0.3s ease;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: #106077;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.dropdown-content a:last-child {
+  border-bottom: none;
+}
+
+.dropdown-content a:hover {
+  background-color: #f0f9fc;
+  color: #0b4c5f;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .dropdown-content {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: none;
+  }
+  
+  .dropdown:focus-within .dropdown-content {
+    display: block;
+  }
 }
