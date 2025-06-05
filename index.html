@@ -76,7 +76,7 @@
 <div class="dropdown-container">
   <button class="register-btn" id="registerDropdownBtn">Register Now ▼</button>
   <div class="dropdown-menu" id="registerDropdown">
-   <a href="#">Individual Delegation Registration</a>
+    <a href="#">Individual Delegation Registration</a>
     <a href="#">Double Delegation Registration</a>
     <a href="#">International Press Registration</a>
     <a href="#">Public Eye Matrix</a>
@@ -279,34 +279,45 @@ var swiper = new Swiper(".mySwiper", {
   }
 }
 
-// Optional: close dropdown if clicking outside
-document.addEventListener('click', function(event) {
-  const dropdown = document.getElementById('registerDropdown');
-  const button = document.querySelector('.register-btn');
-  if (!button.contains(event.target) && !dropdown.contains(event.target)) {
-    dropdown.style.display = 'none';
-    document.getElementById('register-icon').classList.remove('rotate');
-  }
-});
 document.addEventListener('DOMContentLoaded', function() {
+  const dropdownContainer = document.querySelector('.dropdown-container');
   const dropdownBtn = document.getElementById('registerDropdownBtn');
   const dropdownMenu = document.getElementById('registerDropdown');
   
   // Toggle dropdown on button click
   dropdownBtn.addEventListener('click', function(e) {
     e.stopPropagation();
-    document.querySelector('.dropdown-container').classList.toggle('active');
+    dropdownContainer.classList.toggle('active');
+    
+    // Close other open dropdowns if any
+    document.querySelectorAll('.dropdown-container').forEach(container => {
+      if (container !== dropdownContainer) {
+        container.classList.remove('active');
+      }
+    });
   });
   
-  // Close dropdown when clicking outside
-  document.addEventListener('click', function() {
-    document.querySelector('.dropdown-container').classList.remove('active');
+  // Close when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!dropdownContainer.contains(e.target)) {
+      dropdownContainer.classList.remove('active');
+    }
   });
   
-  // Prevent dropdown from closing when clicking inside it
+  // Keep dropdown open when clicking inside
   dropdownMenu.addEventListener('click', function(e) {
     e.stopPropagation();
+    
+    // Optional: Close after selecting an item
+    if (e.target.tagName === 'A') {
+      dropdownContainer.classList.remove('active');
+    }
   });
+  
+  // Close when scrolling (optional)
+  window.addEventListener('scroll', function() {
+    dropdownContainer.classList.remove('active');
+  }, { passive: true });
 });
   </script>
 </body>
