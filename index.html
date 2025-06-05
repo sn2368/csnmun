@@ -73,13 +73,13 @@
     <div class="hero-caption">
       <h1>CSNMUN'25</h1>
       <p>Let's strive for a better world</p>
-      <div class="dropdown">
-  <button class="register-btn">Register Now <span class="dropdown-arrow">▼</span></button>
-  <div class="dropdown-content">
-    <a href="#individual-registration">Individual Delegate</a>
-    <a href="#school-registration">School Delegation</a>
-    <a href="#ip-registration">International Press</a>
-    <a href="#secretariat">Secretariat Application</a>
+      <div class="dropdown-container">
+  <button class="register-btn">Register Now ▼</button>
+  <div class="dropdown-menu">
+    <a href="#">Individual Delegation Registration</a>
+    <a href="#">Double Delegation Registration</a>
+    <a href="#">International Press Registration</a>
+    <a href="#">Public Eye Matrix</a>
   </div>
 </div>
 
@@ -287,6 +287,20 @@ document.addEventListener('click', function(event) {
   if (!button.contains(event.target) && !dropdown.contains(event.target)) {
     dropdown.style.display = 'none';
     document.getElementById('register-icon').classList.remove('rotate');
+  }
+});
+    // Add this to your existing script
+document.querySelector('.dropdown-container').addEventListener('click', function() {
+  if (window.innerWidth <= 768) {
+    this.classList.toggle('active');
+  }
+});
+
+// Close when clicking outside
+document.addEventListener('click', function(e) {
+  const dropdown = document.querySelector('.dropdown-container');
+  if (!dropdown.contains(e.target)) {
+    dropdown.classList.remove('active');
   }
 });
   </script>
