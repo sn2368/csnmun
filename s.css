@@ -541,7 +541,7 @@ li{
 .dropdown-container {
   position: relative;
   display: inline-block;
-  z-index: 1000; /* Higher z-index to stay above other elements */
+  z-index: 1001; /* Higher than anything else */
 }
 
 /* Main Button */
@@ -559,22 +559,22 @@ li{
   align-items: center;
   gap: 8px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  position: relative;
 }
 
 /* Dropdown Menu */
 .dropdown-menu {
   position: absolute;
-  top: 100%;
+  top: calc(100% + 5px);
   left: 0;
   width: 100%;
   background-color: white;
   border-radius: 8px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-  overflow-y: auto; /* Enable vertical scrolling */
-  max-height: 200px; /* Limit height and enable scroll */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  overflow-y: auto;
+  max-height: 250px;
   display: none;
-  margin-top: 5px;
-  min-width: 220px;
+  min-width: 280px; /* Wider to accommodate longer text */
 }
 
 /* Show dropdown when active */
@@ -592,6 +592,7 @@ li{
   font-size: 0.95rem;
   transition: all 0.2s ease;
   border-bottom: 1px solid #f0f0f0;
+  white-space: nowrap; /* Prevent text wrapping */
 }
 
 .dropdown-menu a:last-child {
@@ -601,6 +602,21 @@ li{
 .dropdown-menu a:hover {
   background-color: #e6f4f9;
   color: #0b4c5f;
+}
+
+/* Scrollbar styling */
+.dropdown-menu::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dropdown-menu::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 0 8px 8px 0;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+  background: #106077;
+  border-radius: 4px;
 }
 
 /* Animation */
