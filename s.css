@@ -562,9 +562,6 @@ li{
   color: white;
 }
 
-.hero-caption {
-  position: relative; /* needed for absolute dropdown positioning */
-}
 
 #register-icon {
   display: inline-block;
