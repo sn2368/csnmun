@@ -73,16 +73,15 @@
     <div class="hero-caption">
       <h1>CSNMUN'25</h1>
       <p>Let's strive for a better world</p>
-      <div class="dropdown-container">
-  <button class="register-btn">Register Now ▼</button>
-  <div class="dropdown-menu">
-    <a href="#">Individual Delegation Registration</a>
+<div class="dropdown-container">
+  <button class="register-btn" id="registerDropdownBtn">Register Now ▼</button>
+  <div class="dropdown-menu" id="registerDropdown">
+   <a href="#">Individual Delegation Registration</a>
     <a href="#">Double Delegation Registration</a>
     <a href="#">International Press Registration</a>
     <a href="#">Public Eye Matrix</a>
   </div>
 </div>
-
     </div>
   </div>
 </section>
@@ -289,19 +288,25 @@ document.addEventListener('click', function(event) {
     document.getElementById('register-icon').classList.remove('rotate');
   }
 });
-    // Add this to your existing script
-document.querySelector('.dropdown-container').addEventListener('click', function() {
-  if (window.innerWidth <= 768) {
-    this.classList.toggle('active');
-  }
-});
-
-// Close when clicking outside
-document.addEventListener('click', function(e) {
-  const dropdown = document.querySelector('.dropdown-container');
-  if (!dropdown.contains(e.target)) {
-    dropdown.classList.remove('active');
-  }
+document.addEventListener('DOMContentLoaded', function() {
+  const dropdownBtn = document.getElementById('registerDropdownBtn');
+  const dropdownMenu = document.getElementById('registerDropdown');
+  
+  // Toggle dropdown on button click
+  dropdownBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    document.querySelector('.dropdown-container').classList.toggle('active');
+  });
+  
+  // Close dropdown when clicking outside
+  document.addEventListener('click', function() {
+    document.querySelector('.dropdown-container').classList.remove('active');
+  });
+  
+  // Prevent dropdown from closing when clicking inside it
+  dropdownMenu.addEventListener('click', function(e) {
+    e.stopPropagation();
+  });
 });
   </script>
 </body>
