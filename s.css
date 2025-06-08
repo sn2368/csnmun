@@ -604,3 +604,37 @@ li{
   background: #106077;
   border-radius: 3px;
 }
+.conference-details {
+  background-color: #e9f5f8;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.details-box {
+  background: white;
+  padding: 2rem;
+  max-width: 600px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  color: #104f65;
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.8;
+}
+
+.details-box h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: #106077;
+}
+
+.details-box h4 {
+  margin-top: 1.5rem;
+  color: #0e4a60;
+}
+
+.details-box a {
+  color: #106077;
+  text-decoration: underline;
+}
