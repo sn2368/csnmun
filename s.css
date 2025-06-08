@@ -589,6 +589,7 @@ li{
   font-size: 0.95rem;
   transition: all 0.2s ease;
   border-bottom: 1px solid #f0f0f0;
+  text-shadow: none;
 }
 
 .dropdown-menu a:last-child {
